@@ -12,7 +12,7 @@ import static io.restassured.RestAssured.given;
 
 public class Demowebshoptests {
     String baseUrl = "http://demowebshop.tricentis.com";
-    String logoUrl = "http://demowebshop.tricentis.com/Themes/DefaultClean/Content/images/logo.png";
+    String faviconUrl = "http://demowebshop.tricentis.com/favicon.ico";
 
     String cookieName = "Nop.customer";
     String cookieValue = "745993f8-bbee-4264-ac59-5278bc8df5e7";
@@ -36,7 +36,7 @@ public class Demowebshoptests {
 
         String countInWishlist = response.path("updatetopwishlistsectionhtml");
 
-        open(logoUrl);
+        open(faviconUrl);
         getWebDriver().manage().addCookie(generatedCookie);
         open(baseUrl);
         assertThat($(".wishlist-qty").getText()).isEqualTo(countInWishlist);
